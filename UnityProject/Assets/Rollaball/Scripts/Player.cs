@@ -15,11 +15,15 @@ public class Player : MonoBehaviour
     public List<Material> colorMaterials = new List<Material>();
     private int currentColorIndex = 0;
 
+    public List<AudioClip> boostSounds = new List<AudioClip>();
+    AudioSource myAudio = null;
+
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
         meshRend = GetComponent<MeshRenderer>();
+        TryGetComponent<AudioSource>(out myAudio);
     }
 
     // Update is called once per frame
@@ -69,6 +73,7 @@ public class Player : MonoBehaviour
                 0.0f, 
                 forward * boostPower, 
                 ForceMode.Impulse);
+            myAudio.PlayOneShot(boostSounds[Random.Range(0,boostSounds.Count)]);
         }
         //else, do nothing
     }
@@ -79,13 +84,8 @@ public class Player : MonoBehaviour
         BoostPad boostPad = null;
         if (other.TryGetComponent<BoostPad>(out boostPad))
         {
-            //if points >= 4
-            if (points >= 4)
-            {
-                //apply force to rbody equal to the boost direction specified on the boost pad
-                rbody.AddForce(boostPad.boostDirection, ForceMode.VelocityChange);
-            }
-            //otherwise do nothing (it is hidden at this point) 
+            //apply force to rbody equal to the boost direction specified on the boost pad
+            rbody.AddForce(boostPad.boostDirection, ForceMode.VelocityChange);
         }       
     }
 }

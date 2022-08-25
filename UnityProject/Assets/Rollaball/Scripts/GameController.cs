@@ -11,8 +11,9 @@ public class GameController : MonoBehaviour
     public UnityEngine.UI.Text gameOverStatsText;
     
     public Player player = null;
+    public BoostPad boostPad = null;
 
-    public List<Pickup> requiredPickups = new List<Pickup>();
+    public List<GameObject> requiredPickups = new List<GameObject>();
 
     //  respawn references
     private bool checkpoint;
@@ -60,6 +61,14 @@ public class GameController : MonoBehaviour
         {
             scoreText.text = "Score: " + player.points.ToString();
         }
+        
+        //  if requiredPickups is empty
+        if (requiredPickups.Count == 0)
+        {
+            //move the boost pad onto the level
+            boostPad.transform.position = (boostPad.activePosition);
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
