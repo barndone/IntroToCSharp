@@ -28,7 +28,7 @@ public class CollectableZone : MonoBehaviour
             //increment counter
             requiredCounter++;
             //get rid of the wall blocking the path if all the objects are in the zone
-            if (requiredCounter == (collectables.Count - 1))
+            if (requiredCounter == (collectables.Count))
             {
                 door.transform.position = doorOpenPosition;
             }
@@ -47,7 +47,7 @@ public class CollectableZone : MonoBehaviour
             //increment counter
             requiredCounter--;
             //get rid of the wall blocking the path if all the objects are in the zone
-            if (requiredCounter < (collectables.Count - 1))
+            if (requiredCounter < (collectables.Count))
             {
                 door.transform.position = doorClosedPosition;
             }
