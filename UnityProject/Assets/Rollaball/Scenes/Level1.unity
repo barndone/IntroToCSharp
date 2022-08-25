@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1704265, g: 0.2029678, b: 0.23923992, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -587,7 +587,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2263012579998601122, guid: 2cb8d81919418f843b30e0001044c8d4, type: 3}
       propertyPath: m_Name
-      value: Pickup (2)
+      value: Pickup (6)
       objectReference: {fileID: 0}
     - target: {fileID: 2263012579998601150, guid: 2cb8d81919418f843b30e0001044c8d4, type: 3}
       propertyPath: m_RootOrder
@@ -1168,7 +1168,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2263012579998601122, guid: 2cb8d81919418f843b30e0001044c8d4, type: 3}
       propertyPath: m_Name
-      value: Pickup (3)
+      value: Pickup (7)
       objectReference: {fileID: 0}
     - target: {fileID: 2263012579998601150, guid: 2cb8d81919418f843b30e0001044c8d4, type: 3}
       propertyPath: m_RootOrder
@@ -1410,7 +1410,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2263012579998601122, guid: 2cb8d81919418f843b30e0001044c8d4, type: 3}
       propertyPath: m_Name
-      value: Pickup
+      value: Pickup (4)
       objectReference: {fileID: 0}
     - target: {fileID: 2263012579998601150, guid: 2cb8d81919418f843b30e0001044c8d4, type: 3}
       propertyPath: m_RootOrder
@@ -2468,7 +2468,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2263012579998601122, guid: 2cb8d81919418f843b30e0001044c8d4, type: 3}
       propertyPath: m_Name
-      value: Pickup (1)
+      value: Pickup (5)
       objectReference: {fileID: 0}
     - target: {fileID: 2263012579998601150, guid: 2cb8d81919418f843b30e0001044c8d4, type: 3}
       propertyPath: m_RootOrder
@@ -2592,6 +2592,7 @@ GameObject:
   - component: {fileID: 1818417937}
   - component: {fileID: 1818417941}
   - component: {fileID: 1818417942}
+  - component: {fileID: 1818417943}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2703,14 +2704,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01331049a783a794d82c8f79c1e8d31d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boostPower: 2
+  points: 0
+  colorMaterials:
+  - {fileID: 2100000, guid: 831b0edb5db092641bb98aaa5aa480b6, type: 2}
+  - {fileID: 2100000, guid: 3456d02a185d55c46847cbe66e5817e2, type: 2}
+  - {fileID: 2100000, guid: 3afb1b967dccb4f458346316480350bb, type: 2}
+--- !u!114 &1818417943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818417936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7eeed57c01809604983d0dd08a5a9371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   scoreText: {fileID: 1624092459}
   timerText: {fileID: 1494800454}
   gameOverText: {fileID: 1590849976}
   gameOverStatsText: {fileID: 2112008028}
-  boostPower: 2
-  points: 0
-  timer: 45
+  player: {fileID: 0}
+  requiredPickups:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   respawn: {fileID: 1215244272}
+  timer: 45
 --- !u!1 &1867431298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2995,7 +3018,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2263012579998601122, guid: 2cb8d81919418f843b30e0001044c8d4, type: 3}
       propertyPath: m_Name
-      value: Pickup
+      value: Pickup (0)
       objectReference: {fileID: 0}
     - target: {fileID: 2263012579998601150, guid: 2cb8d81919418f843b30e0001044c8d4, type: 3}
       propertyPath: m_RootOrder
