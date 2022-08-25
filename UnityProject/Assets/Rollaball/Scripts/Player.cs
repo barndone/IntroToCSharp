@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     private Rigidbody rbody;
     private MeshRenderer meshRend;
+    private AudioSource myAudio = null;
 
 
     public float boostPower;
@@ -16,7 +17,7 @@ public class Player : MonoBehaviour
     private int currentColorIndex = 0;
 
     public List<AudioClip> boostSounds = new List<AudioClip>();
-    AudioSource myAudio = null;
+    
 
     // Start is called before the first frame update
     void Start()
