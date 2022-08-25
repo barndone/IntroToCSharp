@@ -5,9 +5,11 @@ VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntroToCSharp", "IntroToCSharp\IntroToCSharp.csproj", "{66CC45EA-0CC4-4334-B8BD-30F09FBFDF72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoopsAndArrays", "LoopsAndArrays\LoopsAndArrays.csproj", "{C542164F-FFB0-48F0-AF67-4DACB842F12C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoopsAndArrays", "LoopsAndArrays\LoopsAndArrays.csproj", "{C542164F-FFB0-48F0-AF67-4DACB842F12C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassesAndMethods", "ClassesAndMethods\ClassesAndMethods.csproj", "{F3563B00-9265-45B0-97CC-E0491D038BCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassesAndMethods", "ClassesAndMethods\ClassesAndMethods.csproj", "{F3563B00-9265-45B0-97CC-E0491D038BCC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorting", "Sorting\Sorting.csproj", "{161298E2-11F0-4C94-B22D-5A5BE6AEF755}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{F3563B00-9265-45B0-97CC-E0491D038BCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3563B00-9265-45B0-97CC-E0491D038BCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3563B00-9265-45B0-97CC-E0491D038BCC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{161298E2-11F0-4C94-B22D-5A5BE6AEF755}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161298E2-11F0-4C94-B22D-5A5BE6AEF755}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161298E2-11F0-4C94-B22D-5A5BE6AEF755}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161298E2-11F0-4C94-B22D-5A5BE6AEF755}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
