@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public float boostPower;
     public int points = 0;                                                      //keeps track of points the player has earned
 
-    public float movementModifier = 1;
+    public float movementModifier = 10.0f;
 
     public int health = 100;
 
@@ -21,6 +21,9 @@ public class Player : MonoBehaviour
     private int currentColorIndex = 0;
 
     public List<AudioClip> boostSounds = new List<AudioClip>();
+
+    private float forward;
+    private float horizontal;
     
 
     // Start is called before the first frame update
@@ -65,14 +68,12 @@ public class Player : MonoBehaviour
             }
         }
 
-        float horizontal = Input.GetAxisRaw("Horizontal");                  //abstraction for a raw Horizontal axis 
-        float forward = Input.GetAxisRaw("Vertical");                       //abstraction for a raw Vertical axis
+        horizontal = Input.GetAxisRaw("Horizontal");                  //abstraction for a raw Horizontal axis 
+        forward = Input.GetAxisRaw("Vertical");                       //abstraction for a raw Vertical axis
 
-        rbody.AddForce(horizontal * movementModifier, 0.0f, forward * movementModifier);                          //adds force every frame equal to the input values (-1, 0, or 1)
-
-        //if spacebar is pressed:
         if (Input.GetKeyDown (KeyCode.Space))
         {
+
             //apply an impulse force in the direction the player is moving (BOOST)
             rbody.AddForce(horizontal * boostPower, 
                 0.0f, 
@@ -81,6 +82,17 @@ public class Player : MonoBehaviour
             myAudio.PlayOneShot(boostSounds[Random.Range(0,boostSounds.Count)]);
         }
         //else, do nothing
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 desiredMovement = new Vector3(horizontal, 0.0f, forward);
+        Vector3.ClampMagnitude(desiredMovement, 1);
+        
+        //Vector3.Normalize will affect controller, partial presses will turn into full movement
+        //ClampMagnitude will just clamp the vector
+
+        rbody.AddForce(desiredMovement * movementModifier);                          //adds force every frame equal to the input values (-1, 0, or 1)
     }
 
     private void OnTriggerEnter(Collider other)
