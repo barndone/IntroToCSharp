@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public UnityEngine.UI.Text scoreText;                                       //no functional difference from ading using UnityEngine.UI.*
-    public UnityEngine.UI.Text timerText;                                       //reference for timer text
+    //reference for timer and score text
+    public UnityEngine.UI.Text scoreText;                                       
+    public UnityEngine.UI.Text timerText;                                       
+    
     //reference for victory screen UI Objects
     public UnityEngine.UI.Text gameOverText;
     public UnityEngine.UI.Text gameOverStatsText;
-    
+
+    //reference for quest tracker
+    public UnityEngine.UI.Text questTracker;
+
     public Player player = null;
     public BoostPad boostPad = null;
+    public GameObject collectableZone = null;
+    private CollectableZone zone;
 
     public List<GameObject> requiredPickups = new List<GameObject>();
 
@@ -28,11 +35,13 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        zone = collectableZone.GetComponent<CollectableZone>();
         TryGetComponent<Player>(out player);
         gameOverText.text = "";                                                 //"hide" the ui element
         gameOverStatsText.text = "";                                            //"hide" the ui element
 
         initialPos = transform.position;                                        //assign initial position for respawn w/o checkpoints
+        questTracker.text = requiredPickups.Count + " pickups remaining!";
     }
 
     // Update is called once per frame
@@ -68,7 +77,29 @@ public class GameController : MonoBehaviour
             //move the boost pad onto the level
             boostPad.transform.position = (boostPad.activePosition);
         }
-        
+
+        //if you do not have the checkpoint
+        if (checkpoint == false)
+        {
+            //look at the first objective
+            questTracker.text = requiredPickups.Count + " pickups remaining!";
+            if (requiredPickups.Count == 0)
+            {
+                questTracker.text = "All pickups acquired!\nPlease move to the next area.";
+            }
+        }
+        //otherwise
+        else
+        {
+            //look at the next objective
+            questTracker.text = "Put the cubes back in their place! " + (zone.collectables.Count - zone.requiredCounter) + " remaining.";
+            
+            if (zone.requiredCounter == zone.collectables.Count)
+            {
+                questTracker.text = "The door is open!\nDon't forget the extra pickups on your way out!";
+            }
+
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -95,6 +126,7 @@ public class GameController : MonoBehaviour
         {
             //flag the checkpoint as true
             checkpoint = true;
+            questTracker.text = "Put the cubes back in their place! " + zone.collectables.Count + " remaining.";
         }
 
         //if the player hits the finish line:

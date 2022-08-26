@@ -12,8 +12,10 @@ public class CollectableZone : MonoBehaviour
     private Vector3 doorOpenPosition = new Vector3(0f, 10f, 40f);
     private Vector3 doorClosedPosition;
 
-    private int requiredCounter = 0;
+    public int requiredCounter = 0;
     private MeshRenderer meshRend = null;
+
+    public bool compleated = false;
 
     private void Start()
     {
@@ -35,6 +37,7 @@ public class CollectableZone : MonoBehaviour
             {
                 door.transform.position = doorOpenPosition;
                 meshRend.material = materials[1];
+                compleated = true;
             }
             //get rid of the wall blocking the path
         }
@@ -55,6 +58,7 @@ public class CollectableZone : MonoBehaviour
             {
                 door.transform.position = doorClosedPosition;
                 meshRend.material = materials[0];
+                compleated = false;
             }
             //get rid of the wall blocking the path
         }
