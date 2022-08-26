@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoopsAndArrays", "LoopsAndA
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassesAndMethods", "ClassesAndMethods\ClassesAndMethods.csproj", "{F3563B00-9265-45B0-97CC-E0491D038BCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorting", "Sorting\Sorting.csproj", "{161298E2-11F0-4C94-B22D-5A5BE6AEF755}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExercisesOnArrays", "Sorting\ExercisesOnArrays.csproj", "{161298E2-11F0-4C94-B22D-5A5BE6AEF755}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
