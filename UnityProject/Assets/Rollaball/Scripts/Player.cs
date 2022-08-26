@@ -12,6 +12,10 @@ public class Player : MonoBehaviour
     public float boostPower;
     public int points = 0;                                                      //keeps track of points the player has earned
 
+    public float movementModifier = 1;
+
+    public int health = 100;
+
 
     public List<Material> colorMaterials = new List<Material>();
     private int currentColorIndex = 0;
@@ -64,7 +68,7 @@ public class Player : MonoBehaviour
         float horizontal = Input.GetAxisRaw("Horizontal");                  //abstraction for a raw Horizontal axis 
         float forward = Input.GetAxisRaw("Vertical");                       //abstraction for a raw Vertical axis
 
-        rbody.AddForce(horizontal, 0.0f, forward);                          //adds force every frame equal to the input values (-1, 0, or 1)
+        rbody.AddForce(horizontal * movementModifier, 0.0f, forward * movementModifier);                          //adds force every frame equal to the input values (-1, 0, or 1)
 
         //if spacebar is pressed:
         if (Input.GetKeyDown (KeyCode.Space))

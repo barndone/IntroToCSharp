@@ -15,6 +15,9 @@ public class GameController : MonoBehaviour
     //reference for quest tracker
     public UnityEngine.UI.Text questTracker;
 
+    //reference for health tracker
+    public UnityEngine.UI.Text healthTracker;
+
     public Player player = null;
     public BoostPad boostPad = null;
     public GameObject collectableZone = null;
@@ -41,7 +44,6 @@ public class GameController : MonoBehaviour
         gameOverStatsText.text = "";                                            //"hide" the ui element
 
         initialPos = transform.position;                                        //assign initial position for respawn w/o checkpoints
-        questTracker.text = requiredPickups.Count + " pickups remaining!";
     }
 
     // Update is called once per frame
@@ -56,6 +58,8 @@ public class GameController : MonoBehaviour
             ":" +
             secondsRemaining.ToString("00");      //update the timer UI element (mm:ss formatting applied)
 
+        healthTracker.text = "Health: " + player.health;
+
         //if timer is less than or equal to 0.0f
         if (timer <= 0.0f)
         {
@@ -65,6 +69,26 @@ public class GameController : MonoBehaviour
 
             scoreText.text = " ";                                            //"hide" the ui element
             timerText.text = " ";                                            //"hide" the ui element
+            healthTracker.text = "";
+
+            //why aren't you working ????????????
+            questTracker.text = " ";                                        //"hide this ui element
+            
+
+        }
+        else if (player.health <= 0)
+        {
+            Time.timeScale = 0.0f;                                          //stop time
+            gameOverText.text = "Oh no!\n" +
+                "You died!";
+
+            scoreText.text = " ";                                            //"hide" the ui element
+            timerText.text = " ";                                            //"hide" the ui element
+            healthTracker.text = "";
+
+
+            //why aren't you working ????????????
+            questTracker.text = " ";                                        //"hide this ui element
         }
         else 
         {
@@ -140,14 +164,16 @@ public class GameController : MonoBehaviour
                                         "/8\nTime Remaining: " +
                                         minutesRemaining.ToString("00") +
                                         ":" +
-                                        secondsRemaining.ToString("00");
+                                        secondsRemaining.ToString("00") + 
+                                        "\nRemaining Health: " + player.health;
             Time.timeScale = 0.0f;
 
 
             //  why aren't you hiding??????!?!??!!?
             scoreText.text = " ";                                            //"hide" the ui element
             timerText.text = " ";                                            //"hide" the ui element
-
+            questTracker.text = " ";                                        //"hide this ui element
+            healthTracker.text = " ";
         }
     }
 }
