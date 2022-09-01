@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassesAndMethods", "Classe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExercisesOnArrays", "Sorting\ExercisesOnArrays.csproj", "{161298E2-11F0-4C94-B22D-5A5BE6AEF755}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntroductoryExercises", "IntroductoryExercises\IntroductoryExercises.csproj", "{D6C5BB3C-993E-48EE-A67C-B8ABEBD164FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{161298E2-11F0-4C94-B22D-5A5BE6AEF755}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{161298E2-11F0-4C94-B22D-5A5BE6AEF755}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{161298E2-11F0-4C94-B22D-5A5BE6AEF755}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6C5BB3C-993E-48EE-A67C-B8ABEBD164FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6C5BB3C-993E-48EE-A67C-B8ABEBD164FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6C5BB3C-993E-48EE-A67C-B8ABEBD164FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6C5BB3C-993E-48EE-A67C-B8ABEBD164FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

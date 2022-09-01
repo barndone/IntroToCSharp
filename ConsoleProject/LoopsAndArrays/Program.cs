@@ -109,13 +109,10 @@ namespace AIE
             //2. if the number is a multiple of five, print "Buzz"
             //3. if the number is a multiple of both three and five, print "FizzBuzz"
             //4. if the number does not match any of the above conditions, then print the number
-            int startingNumber = -1;
+            int startingNumber = 1;
             int endingNumber = -1;
             int arrayLength = 0;
 
-            Console.WriteLine("Please provide a starting number: ");
-            userInput = Console.ReadLine();
-            int.TryParse((string)userInput, out startingNumber);
             Console.WriteLine("Please provide an ending number: ");
             userInput = Console.ReadLine();
             int.TryParse((string)userInput,out endingNumber);
