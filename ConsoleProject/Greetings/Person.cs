@@ -4,7 +4,7 @@ namespace Greetings
 {
     class Person
     {
-        protected string name = "";
+        protected string name;
         protected int phoneNumber = 0;
         protected string emailAddress = "";
 
