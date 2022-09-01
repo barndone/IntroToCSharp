@@ -10,6 +10,7 @@ namespace AIE
     {
         static void Main()
         {
+            
 
             //TODO add user input
             Console.WriteLine(AddNumbers(1.1f, 3.89f));
@@ -21,13 +22,13 @@ namespace AIE
 
         }
         //Exercise 1: Adding Two Numbers
-        
         /*  
             Determine the integer floor of the sum of two floating point numbers.
             The floor function is the function that takes as input a real number x, and gives as output the greatest integer less than or equal to x.
             Create a function called AddNumbers that accepts two parameters of type float, and returns an integer.
             Example:
-            floor(1.1 + 3.89) = floor(4.99) = 4 */
+            floor(1.1 + 3.89) = floor(4.99) = 4 
+        */
         static int AddNumbers(float x, float y)
         {
             //cast the sum of x and y to type int
@@ -79,7 +80,6 @@ namespace AIE
                 >If i is not a multiple of 3 or 5, print the value of i.
             The function must print the appropriate response for each value i in the set {1, 2, ... n} in ascending order, each on a separate line.
          */
-
         static void FizzBuzz()
         {
             int startingNumber = 1;
@@ -114,7 +114,5 @@ namespace AIE
                 }
             }
         }
-
     }
-
 }
