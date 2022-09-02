@@ -21,6 +21,8 @@ public class HealthBar : MonoBehaviour
 
     bool isPoisoned = false;
 
+    [SerializeField] int numberOfPotions;
+
     float Health
     {
         get { return health; }
@@ -127,6 +129,13 @@ public class HealthBar : MonoBehaviour
      
     public void Heal(float restore = 20.0f)
     {
+        //if: player has potion
+            //heal
+            //update UI sprite
+        //otherwise:
+            //do nothing
+
+
         //heal the character by the specified restoration amount
         Health += restore;
     }
