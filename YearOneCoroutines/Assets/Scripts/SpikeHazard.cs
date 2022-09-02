@@ -9,6 +9,6 @@ public class SpikeHazard : BaseHazard
     protected override void HazardAction()
     {
         base.healthBar.TakeDamage(damage);
-        Debug.Log("I stepped on a spike :(");
+        Debug.Log("I stepped on a spike");
     }
 }

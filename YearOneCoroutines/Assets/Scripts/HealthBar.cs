@@ -17,6 +17,9 @@ public class HealthBar : MonoBehaviour
     [SerializeField]Color endingColor;
 
     bool isInvincible = false;
+    public Coroutine poisonCoroutine;
+
+    bool isPoisoned = false;
 
     float Health
     {
@@ -60,18 +63,35 @@ public class HealthBar : MonoBehaviour
         //more optimized to just swap starting color and ending color rather than calculating the inverse.
         bar.color = Color.Lerp(endingColor, startingColor, health / maxHealth);
     }
-
+    /*void CheckForDeath()
+    {
+        if (health <= 0)
+        {
+            //HazardGame.instance.
+        }
+    }*/
     //ignores iframes
     public void TakeDamageOverTime(float dmg, float duration)
     {
-        StartCoroutine(ApplyDOT(dmg, duration));
+        if (!isPoisoned)
+        {
+            poisonCoroutine = StartCoroutine(ApplyDOT(dmg, duration));
+        }
     }
-
+    public void StopDamageOverTime()
+    {
+        if (isPoisoned)
+        {
+            StopCoroutine(poisonCoroutine);
+            Debug.Log("Damage over time stopped.");
+        }
+    }
     IEnumerator ApplyDOT(float dmg, float duration)
     {
         isInvincible = true;
         float damageToApply = dmg / duration;
         float damageTaken = 0f;
+
 
         while (damageTaken < dmg)
         {
@@ -125,7 +145,7 @@ public class HealthBar : MonoBehaviour
 
     public void TestDOT()
     {
-        TakeDamageOverTime(30f, 5f);
+        TakeDamageOverTime(30f, 10f);
     }
     #endregion
 }
