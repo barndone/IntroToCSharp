@@ -1,0 +1,156 @@
+class Result
+{
+
+    /*
+     * Complete the 'miniMaxSum' function below.
+     *
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+
+    public static void miniMaxSum(List<int> arr)
+    {
+        long min = long.MaxValue;
+        long max = long.MinValue;
+        long sum = 0;
+        //with this method, the array has to be sorted
+        //arr.Sort();
+        for(int i = 0; i < arr.Count; i++)
+        {
+            if (arr[i] < min)
+            {
+                min = arr[i];
+            }
+            if (arr[i] > max)
+            {
+                max = arr[i];
+            }
+            sum += arr[i];
+            /*//first case, if i == 0, increment min only
+            if (i == 0)
+            {
+                Min += arr[i];
+            }
+            //second case, if i == count - 1, increment max only
+            else if(i == arr.Count - 1)
+            {
+                Max += arr[i];
+            }
+            //third case, increment each of them
+            else
+            {
+                Min += arr[i];
+                Max += arr[i];
+            }*/
+        }
+        Console.WriteLine((sum - max) + " " + (sum - min));
+    }
+	
+	/*
+     * Complete the 'staircase' function below.
+     *
+     * The function accepts INTEGER n as parameter.
+     */
+
+    public static void staircase(int n)
+    {
+        
+        for (int i = 1; i <= n; i++)
+        {
+            int leadingSpace = n - i;
+            Console.WriteLine(new String(' ', leadingSpace) + 
+            new String('#', i));
+        }
+    }
+
+/*
+     * Complete the 'timeConversion' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts STRING s as parameter.
+     */
+
+    public static string timeConversion(string s)
+    {
+        string output = "";
+        //first case, is it midnight hour
+        if (s.StartsWith("12:") && s.Substring(8,2) == "AM")
+        {
+            output = "00" + s.Substring(2,6);
+        }
+        //second case, is it PM
+        else if(s.Substring(8,2) == "PM")
+        {
+            int hour = 0;
+            int.TryParse(s.Substring(0,2), out hour);
+            //is it PAST the noon hour
+            if (hour != 12)
+            {
+                output = (hour + 12) + s.Substring(2,6);
+            }
+            //is it during the noon hour
+            else
+            {
+                output = s.Substring(0,8) ;   
+            }
+        }
+        //third case, it is between 1AM and Noon
+        else
+        {
+            output = s.Substring(0,8);
+        }
+        return output;
+    }
+	public static void plusMinus(List<int> arr)
+    {
+        float positiveRatio = 0;
+        float negativeRatio = 0;
+        float zeroRatio = 0;
+        foreach (int i in arr)
+        {
+            if (i > 0)
+            {
+                positiveRatio++;
+            }
+            else if (i < 0)
+            {
+                negativeRatio++;
+            }
+            else
+            {
+                zeroRatio++;
+            }
+        }
+        Console.WriteLine((positiveRatio/arr.Count).ToString("N6"));
+        Console.WriteLine((negativeRatio/arr.Count).ToString("N6"));
+        Console.WriteLine((zeroRatio/arr.Count).ToString("N6"));
+    }
+
+	/*
+     * Complete the 'reverseArray' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts INTEGER_ARRAY a as parameter.
+     */
+
+    public static List<int> reverseArray(List<int> a)
+    {
+        int tempBack = 0;
+        int tempFront = 0;
+        
+        int temp = 0;
+        
+        for(int i = a.Count - 1; i > a.Count / 2; i--)
+        {
+            //tempFront = a[(a.Count-1) - i];
+            //tempBack = a[i];
+            //a[i] = tempFront;
+            //a[(a.Count-1) - i] = tempBack;
+            
+            temp = a[(a.Count-1) - i];
+            a[(a.Count-1) - i] = a[i];
+            a[i] = temp;
+        }
+        return a;
+    }
+
+}
