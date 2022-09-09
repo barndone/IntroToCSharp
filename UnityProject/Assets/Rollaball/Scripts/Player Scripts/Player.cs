@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
 
     public int health = 100;
 
+    public float boostCD = 5f;
+    private float timer;
+    private bool boostOnCD = false;
+
 
     public List<Material> colorMaterials = new List<Material>();
     private int currentColorIndex = 0;
@@ -37,6 +41,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //  color swaps
         //  if you press right bracket, next color
         //  otherwise if you press left bracket, previous color
@@ -68,10 +73,12 @@ public class Player : MonoBehaviour
             }
         }
 
+
+
         horizontal = Input.GetAxisRaw("Horizontal");                  //abstraction for a raw Horizontal axis 
         forward = Input.GetAxisRaw("Vertical");                       //abstraction for a raw Vertical axis
 
-        if (Input.GetKeyDown (KeyCode.Space))
+        if (Input.GetKeyDown (KeyCode.Space) && !boostOnCD)
         {
 
             //apply an impulse force in the direction the player is moving (BOOST)
@@ -80,8 +87,24 @@ public class Player : MonoBehaviour
                 forward * boostPower, 
                 ForceMode.Impulse);
             myAudio.PlayOneShot(boostSounds[Random.Range(0,boostSounds.Count)]);
+            timer = 0f;
+            boostOnCD = true;
         }
         //else, do nothing
+        else if (Input.GetKeyDown(KeyCode.Space) && boostOnCD)
+        {
+            Debug.Log("Boost on CD");
+        }
+
+        if (boostOnCD)
+        {
+            timer += Time.deltaTime;
+            if (timer >= boostCD)
+            {
+                boostOnCD = false;
+                Debug.Log("Boost off CD");
+            }
+        }
     }
 
     private void FixedUpdate()
