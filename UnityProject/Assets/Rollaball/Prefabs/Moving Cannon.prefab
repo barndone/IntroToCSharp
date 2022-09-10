@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8645293983572529842
+--- !u!1 &8928511858011053947
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3177920695604202493}
-  - component: {fileID: 3174730997807436340}
-  - component: {fileID: 6389582012393321527}
-  - component: {fileID: 4967576005450473686}
-  - component: {fileID: 8327964998953222807}
-  - component: {fileID: 2372347507355694639}
+  - component: {fileID: 8928511858011053920}
+  - component: {fileID: 8928511858011053951}
+  - component: {fileID: 8928511858011053950}
+  - component: {fileID: 8928511858011053949}
+  - component: {fileID: 8928511858011053948}
+  - component: {fileID: 7003898541462038185}
   m_Layer: 0
-  m_Name: projectile
+  m_Name: Moving Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3177920695604202493
+--- !u!4 &8928511858011053920
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8645293983572529842}
+  m_GameObject: {fileID: 8928511858011053947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.47000003, y: -2.75, z: 77.63}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 14.61, y: 13.77, z: 28.79}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3174730997807436340
+--- !u!33 &8928511858011053951
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8645293983572529842}
+  m_GameObject: {fileID: 8928511858011053947}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &6389582012393321527
+--- !u!23 &8928511858011053950
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8645293983572529842}
+  m_GameObject: {fileID: 8928511858011053947}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -84,45 +84,48 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4967576005450473686
+--- !u!135 &8928511858011053949
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8645293983572529842}
+  m_GameObject: {fileID: 8928511858011053947}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &8327964998953222807
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8645293983572529842}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!114 &2372347507355694639
+--- !u!114 &8928511858011053948
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8645293983572529842}
+  m_GameObject: {fileID: 8928511858011053947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 744fcc98da6e4364a8e65e9c179b8b80, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e5e3ca76b9793e438662c589c6e598c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileDestructionTime: 0.75
+  timeToWait: 1.5
+  cannonForce: 30
+  initialVelocity: {x: 0, y: 0, z: 1}
+  cannonBallPrefab: {fileID: 8645293983572529842, guid: b8b0b622db303ae45ab35137cc5f6a08, type: 3}
+  firePoint: {fileID: 8928511858011053920}
+--- !u!114 &7003898541462038185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8928511858011053947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2264ecd67a3db74429609499464ea8a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceToMove: 15
+  moveSpeed: 1
+  movementVector: {x: -1, y: 0, z: 0}

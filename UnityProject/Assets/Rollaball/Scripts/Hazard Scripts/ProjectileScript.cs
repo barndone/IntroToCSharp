@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour
 {
-    [SerializeField] [Range(1f, 5f)] private float projectileDestructionTime;
+    [SerializeField] [Range(0f, 5f)] private float projectileDestructionTime;
     // Start is called before the first frame update
     void Start()
     {

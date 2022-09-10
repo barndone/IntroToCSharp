@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class CanonScript : MonoBehaviour
 {
-    [SerializeField][Range(1, 10)] float timeToWait = 3f;
+    [SerializeField][Range(0, 10)] private float timeToWait = 3f;
 
-    [SerializeField] [Range(1, 50)] float cannonForce = 10f;
+    [SerializeField] [Range(1, 50)] private float cannonForce = 10f;
+
+    [SerializeField] private Vector3 initialVelocity = new Vector3(0,0,-1);
 
     public GameObject cannonBallPrefab;
     public Transform firePoint;
 
     private float timer = 0f;
 
-    private Vector3 initialVelocity = new Vector3(0,0,-1);
+    
 
 
     // Update is called once per frame

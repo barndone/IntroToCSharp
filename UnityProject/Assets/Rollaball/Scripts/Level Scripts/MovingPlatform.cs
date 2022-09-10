@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    [SerializeField] [Range(1, 10)] float distanceToMove = 3;
+    [SerializeField] [Range(1, 50)] float distanceToMove = 3;
     bool isMoving = true;
     [SerializeField] [Range(0, 1)] float moveSpeed = 1f;
 
