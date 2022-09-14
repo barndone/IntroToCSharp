@@ -3190,7 +3190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8928511858011053948, guid: fdc837e917d492b4abd1bdedcb398216, type: 3}
       propertyPath: timeToWait
-      value: 0.5
+      value: 0.59
       objectReference: {fileID: 0}
     - target: {fileID: 8928511858011053948, guid: fdc837e917d492b4abd1bdedcb398216, type: 3}
       propertyPath: initialVelocity.z
@@ -7351,7 +7351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8928511858011053948, guid: fdc837e917d492b4abd1bdedcb398216, type: 3}
       propertyPath: timeToWait
-      value: 0.5
+      value: 0.59
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdc837e917d492b4abd1bdedcb398216, type: 3}
